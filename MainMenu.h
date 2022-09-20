@@ -13,7 +13,7 @@ enum class MenuScenes
 	Win,
 	Lose
 };
-MenuScenes menu;
+extern MenuScenes menu;
 
 struct Buttons
 {
@@ -23,6 +23,6 @@ struct Buttons
 
 	Rectangle backgroundBttn{};
 };
-Buttons Texto[4];
+extern Buttons Texto[3];
 
 void drawMainMenu();
