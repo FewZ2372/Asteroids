@@ -1,9 +1,11 @@
 #include "raylib.h"
 #include "Game.h"
 #include "MainMenu.h"
+#include "SpaceShip.h"
 
 MenuScenes menu;	
 Buttons Texto[3];
+SpaceShip spaceShip;
 
 int main(void)
 {
@@ -14,13 +16,14 @@ int main(void)
 
 	
 	InitWindow(screenWidth, screenHeight, "Meteoroids");
-
+	initializeTexts();
 	SetTargetFPS(60);
 	//--------------------------------------------------------------------------------------
 
 	// Main game loop
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
+		Update();
 		RunGame();
 	}
 	// De-Initialization

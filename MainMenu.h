@@ -25,4 +25,12 @@ struct Buttons
 };
 extern Buttons Texto[3];
 
-void drawMainMenu();
+void scenesSwitch();
+void initializeTexts();
+void drawButtons();
+void drawPlay();
+void checkPlay();
+void drawCredits();
+void checkCredits();
+void drawQuit();
+void checkQuit();

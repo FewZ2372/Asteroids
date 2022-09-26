@@ -1,6 +1,7 @@
 #include "MainMenu.h"
+#include "SpaceShip.h"
 
-void InitializeTexts()
+void initializeTexts()
 {
 	Texto[0].text = "PLAY";
 	Texto[0].fontSize = 40;
@@ -36,11 +37,14 @@ void InitializeTexts()
 
 }
 
-void DrawPlay()
+void drawPlay()
 {
 	DrawRectangle(Texto[0].backgroundBttn.x, Texto[0].backgroundBttn.y, Texto[0].backgroundBttn.width, Texto[0].backgroundBttn.height, WHITE);
 	DrawText(Texto[0].text.c_str(), Texto[0].pos.x, Texto[0].pos.y, Texto[0].fontSize, BLUE);
+}
 
+void checkPlay()
+{
 	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(GetMousePosition(), Texto[0].backgroundBttn))
 	{
 		menu = MenuScenes::Play;
@@ -48,23 +52,31 @@ void DrawPlay()
 	}
 }
 
-void DrawCredits()
+void drawCredits()
 {
 	DrawRectangle(Texto[1].backgroundBttn.x, Texto[1].backgroundBttn.y, Texto[1].backgroundBttn.width, Texto[1].backgroundBttn.height, WHITE);
 	DrawText(Texto[1].text.c_str(), Texto[1].pos.x, Texto[1].pos.y, Texto[1].fontSize, BLUE);
+}
+
+void checkCredits()
+{
 
 	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(GetMousePosition(), Texto[1].backgroundBttn))
 	{
 		menu = MenuScenes::Credits;
 
 	}
+
 }
 
-void DrawQuit()
+void drawQuit()
 {
 	DrawRectangle(Texto[2].backgroundBttn.x, Texto[2].backgroundBttn.y, Texto[2].backgroundBttn.width, Texto[2].backgroundBttn.height, WHITE);
 	DrawText(Texto[2].text.c_str(), Texto[2].pos.x, Texto[2].pos.y, Texto[2].fontSize, RED);
+}
 
+void checkQuit()
+{
 	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(GetMousePosition(), Texto[2].backgroundBttn))
 	{
 		menu = MenuScenes::Quit;
@@ -72,21 +84,33 @@ void DrawQuit()
 	}
 }
 
-void drawMainMenu()
+void drawButtons()
+{
+	BeginDrawing();
+	ClearBackground(RAYWHITE);
+	drawPlay();
+	drawCredits();
+	drawQuit();
+	EndDrawing();
+}
+
+void scenesSwitch()
 {
 	switch (menu)
 	{
 	case MenuScenes::MainMenu:
 
-		DrawPlay();
-		DrawCredits();
-		DrawQuit();
+		drawButtons();
 
 		break;
 
 	case MenuScenes::Play:
 
-
+		BeginDrawing();
+		ClearBackground(RAYWHITE);
+		DrawRectangle(spaceShip.rec.x, spaceShip.rec.y, spaceShip.rec.width, spaceShip.rec.height, RED);
+		EndDrawing();
+	
 		break;
 
 	case MenuScenes::Credits:

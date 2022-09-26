@@ -3,6 +3,11 @@
 
 struct SpaceShip
 {
+	Rectangle rec{};
+	float speed;
+	float direction;
 
 };
+extern SpaceShip spaceShip;
 
+void setSpaceship();
