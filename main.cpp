@@ -17,6 +17,7 @@ int main(void)
 	
 	InitWindow(screenWidth, screenHeight, "Meteoroids");
 	initializeTexts();
+	setSpaceship();
 	SetTargetFPS(60);
 	//--------------------------------------------------------------------------------------
 

@@ -4,11 +4,6 @@
 
 void Update()
 {
-	spaceShip.rec.x = GetMouseX();
-	spaceShip.rec.y = GetMouseY();
-	spaceShip.rec.width = 40;
-	spaceShip.rec.height = 80;
-
 	checkPlay();
 	checkCredits();
 	checkQuit();
