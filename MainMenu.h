@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h" 
+#include "SpaceShip.h"
 #include <String>
 
 using namespace std;
@@ -27,6 +28,7 @@ extern Buttons Texto[3];
 
 void scenesSwitch();
 void initializeTexts();
+void updatePlay();
 void drawButtons();
 void drawPlay();
 void checkPlay();

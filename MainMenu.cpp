@@ -1,5 +1,4 @@
 #include "MainMenu.h"
-#include "SpaceShip.h"
 
 void initializeTexts()
 {
@@ -18,7 +17,7 @@ void initializeTexts()
 	Texto[1].fontSize = 40;
 	Texto[1].pos.x = GetScreenWidth() / 2 - MeasureText(Texto[1].text.c_str(), 50) / 2 + 22;
 	Texto[1].pos.y = 310;
-		  
+
 	Texto[1].backgroundBttn.x = GetScreenWidth() / 2 - MeasureText(Texto[1].text.c_str(), 50) / 2;
 	Texto[1].backgroundBttn.y = 303;
 	Texto[1].backgroundBttn.width = MeasureText(Texto[1].text.c_str(), 50);
@@ -29,7 +28,7 @@ void initializeTexts()
 	Texto[2].fontSize = 40;
 	Texto[2].pos.x = GetScreenWidth() / 2 - MeasureText(Texto[2].text.c_str(), 50) / 2 + 13;
 	Texto[2].pos.y = 380;
-		  
+
 	Texto[2].backgroundBttn.x = GetScreenWidth() / 2 - MeasureText(Texto[2].text.c_str(), 50) / 2;
 	Texto[2].backgroundBttn.y = 373;
 	Texto[2].backgroundBttn.width = MeasureText(Texto[2].text.c_str(), 50);
@@ -94,8 +93,26 @@ void drawButtons()
 	EndDrawing();
 }
 
+void play()
+{
+	Vector2 rotation = { GetMouseX() - spaceShip.rec.x, GetMouseY() - spaceShip.rec.y };
+
+	updatePlay();
+	BeginDrawing();
+	ClearBackground(RAYWHITE);
+	DrawRectanglePro({ spaceShip.rec.x, spaceShip.rec.y, spaceShip.rec.width, spaceShip.rec.height },
+		{ spaceShip.rec.width / spaceShip.rec.height / 2 }, getRotation(rotation), RED);
+	EndDrawing();
+}
+
+void updatePlay()
+{
+	spaceShipMovement();
+}
+
 void scenesSwitch()
 {
+
 	switch (menu)
 	{
 	case MenuScenes::MainMenu:
@@ -106,11 +123,8 @@ void scenesSwitch()
 
 	case MenuScenes::Play:
 
-		BeginDrawing();
-		ClearBackground(RAYWHITE);
-		DrawRectangle(spaceShip.rec.x, spaceShip.rec.y, spaceShip.rec.width, spaceShip.rec.height, RED);
-		EndDrawing();
-	
+		play();
+
 		break;
 
 	case MenuScenes::Credits:
