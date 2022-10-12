@@ -1,16 +1,5 @@
 #include "SpaceShip.h"
 
-float getVectorMagnitude(Vector2 vec)
-{
-	return sqrtf(powf(vec.x, 2) + powf(vec.y, 2));
-}
-
-Vector2 normalizeVector(Vector2 vec)
-{
-	float mag = getVectorMagnitude(vec);
-
-	return { vec.x / mag, vec.y / mag };
-}
 
 void setSpaceship()
 {
@@ -19,8 +8,8 @@ void setSpaceship()
 	spaceShip.rec.y = GetScreenHeight() / 2 - spaceShip.rec.height / 2;
 	spaceShip.rec.x = GetScreenWidth() / 2 - spaceShip.rec.width / 2;
 	spaceShip.speed = 30;
-	spaceShip.lives = 4;
-	spaceShip.maxSpeed = 80;
+	spaceShip.lives = 3;
+	spaceShip.maxSpeed = 50;
 }
 
 void spaceShipMovement()
@@ -41,6 +30,7 @@ void spaceShipMovement()
 
 	accelerateSpaceShip(axisX, axisY, spaceShip);
 }
+
 void accelerateSpaceShip(float axisX, float axisY, SpaceShip& spaceShip)
 {
 	Vector2 newVel = spaceShip.direction;

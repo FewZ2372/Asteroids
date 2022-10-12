@@ -1,6 +1,7 @@
 #pragma once
 #include "raylib.h" 
 #include "SpaceShip.h"
+#include "LaserBeams.h"
 #include <String>
 
 using namespace std;
@@ -26,11 +27,12 @@ struct Buttons
 };
 extern Buttons Texto[3];
 
-void scenesSwitch();
+void scenesSwitch(int i);
 void initializeTexts();
 void updatePlay();
 void drawButtons();
 void drawPlay();
+void play(int i);
 void checkPlay();
 void drawCredits();
 void checkCredits();

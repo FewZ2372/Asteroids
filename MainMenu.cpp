@@ -33,7 +33,6 @@ void initializeTexts()
 	Texto[2].backgroundBttn.y = 373;
 	Texto[2].backgroundBttn.width = MeasureText(Texto[2].text.c_str(), 50);
 	Texto[2].backgroundBttn.height = 50;
-
 }
 
 void drawPlay()
@@ -47,7 +46,6 @@ void checkPlay()
 	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(GetMousePosition(), Texto[0].backgroundBttn))
 	{
 		menu = MenuScenes::Play;
-
 	}
 }
 
@@ -59,13 +57,10 @@ void drawCredits()
 
 void checkCredits()
 {
-
 	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(GetMousePosition(), Texto[1].backgroundBttn))
 	{
 		menu = MenuScenes::Credits;
-
 	}
-
 }
 
 void drawQuit()
@@ -93,26 +88,29 @@ void drawButtons()
 	EndDrawing();
 }
 
-void play()
+void play(int i)
 {
 	Vector2 rotation = { GetMouseX() - spaceShip.rec.x, GetMouseY() - spaceShip.rec.y };
 
 	updatePlay();
 	BeginDrawing();
 	ClearBackground(RAYWHITE);
+
 	DrawRectanglePro({ spaceShip.rec.x, spaceShip.rec.y, spaceShip.rec.width, spaceShip.rec.height },
-		{ spaceShip.rec.width / spaceShip.rec.height / 2 }, getRotation(rotation), RED);
+		{ spaceShip.rec.width / 2, spaceShip.rec.height / 2 }, getRotation(rotation), BLUE);
+
+	DrawCircle(lasers[i].rec.x, lasers[i].rec.y, lasers[i].radius, RED);
 	EndDrawing();
 }
 
 void updatePlay()
 {
 	spaceShipMovement();
+	laserBeamMovement();
 }
 
-void scenesSwitch()
+void scenesSwitch(int i)
 {
-
 	switch (menu)
 	{
 	case MenuScenes::MainMenu:
@@ -123,7 +121,7 @@ void scenesSwitch()
 
 	case MenuScenes::Play:
 
-		play();
+		play(i);
 
 		break;
 
