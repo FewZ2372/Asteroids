@@ -9,7 +9,10 @@ struct LaserBeams
 	bool isLoaded;
 	float speed;
 	float radius;
+	float lifeSpan;
+	float currentLife;
 };
+
 const int maxBullets = 10;
 
 extern LaserBeams lasers[maxBullets];

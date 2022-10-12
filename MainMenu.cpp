@@ -74,7 +74,6 @@ void checkQuit()
 	if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && CheckCollisionPointRec(GetMousePosition(), Texto[2].backgroundBttn))
 	{
 		menu = MenuScenes::Quit;
-
 	}
 }
 
@@ -88,18 +87,24 @@ void drawButtons()
 	EndDrawing();
 }
 
-void play(int i)
+void play()
 {
 	Vector2 rotation = { GetMouseX() - spaceShip.rec.x, GetMouseY() - spaceShip.rec.y };
 
 	updatePlay();
 	BeginDrawing();
 	ClearBackground(RAYWHITE);
-
 	DrawRectanglePro({ spaceShip.rec.x, spaceShip.rec.y, spaceShip.rec.width, spaceShip.rec.height },
 		{ spaceShip.rec.width / 2, spaceShip.rec.height / 2 }, getRotation(rotation), BLUE);
 
-	DrawCircle(lasers[i].rec.x, lasers[i].rec.y, lasers[i].radius, RED);
+	for (int i = 0; i < maxBullets; i++)
+	{
+		if (lasers[i].isLoaded == false)
+		{
+			DrawCircle(lasers[i].rec.x, lasers[i].rec.y, lasers[i].radius, RED);
+		}
+	}
+
 	EndDrawing();
 }
 
@@ -109,7 +114,7 @@ void updatePlay()
 	laserBeamMovement();
 }
 
-void scenesSwitch(int i)
+void scenesSwitch()
 {
 	switch (menu)
 	{
@@ -121,7 +126,7 @@ void scenesSwitch(int i)
 
 	case MenuScenes::Play:
 
-		play(i);
+		play();
 
 		break;
 

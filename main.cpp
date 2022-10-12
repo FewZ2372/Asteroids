@@ -7,7 +7,7 @@
 #include <iostream>
 #include <ctime>
 
-MenuScenes menu;	
+MenuScenes menu;
 Buttons Texto[3];
 SpaceShip spaceShip;
 LaserBeams lasers[maxBullets];
@@ -15,7 +15,7 @@ Meteors bigMeteor[15];
 Meteors middleMeteor[30];
 Meteors littleMeteor[60];
 
-int main(int i)
+int main(void)
 {
 	// Initialization
 	//--------------------------------------------------------------------------------------
@@ -24,9 +24,15 @@ int main(int i)
 
 	srand(time(NULL));
 
-	InitWindow(screenWidth, screenHeight, "Meteoroids");
+	InitWindow(screenWidth, screenHeight, "Asteroids");
 	initializeTexts();
 	setSpaceship();
+
+	for (int i = 0; i < maxBullets; i++)
+	{
+		setLaserBeams(i);
+	}
+
 	SetTargetFPS(60);
 	//--------------------------------------------------------------------------------------
 
@@ -34,7 +40,7 @@ int main(int i)
 	while (!WindowShouldClose())    // Detect window close button or ESC key
 	{
 		Update();
-		RunGame(i);
+		RunGame();
 	}
 	// De-Initialization
 	//--------------------------------------------------------------------------------------

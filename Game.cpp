@@ -9,9 +9,9 @@ void Update()
 	checkQuit();
 }
 
-void RunGame(int i)
+void RunGame()
 {
-	scenesSwitch(i);
+	scenesSwitch();
 }
 
 float getVectorMagnitude(Vector2 vec)
