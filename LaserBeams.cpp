@@ -6,10 +6,11 @@ void setLaserBeams()
 	{
 		lasers[i].pos.x = spaceShip.rec.x;
 		lasers[i].pos.y = spaceShip.rec.y;
-		lasers[i].speed = 400;
-		lasers[i].radius = 5;
-		lasers[i].lifeSpan = 3.0f;
+		lasers[i].speed = 600;
+		lasers[i].radius = 3;
+		lasers[i].lifeSpan = 1.5f;
 		lasers[i].isLoaded = true;
+		lasers[i].laserSound = LoadSound("res/LaserBeam.wav");
 	}
 }
 

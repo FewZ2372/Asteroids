@@ -5,6 +5,7 @@
 #include "LaserBeams.h"
 #include "Meteors.h" 
 
+extern bool isActive;
 void RunGame();
 void drawGame();
 void updateGame();

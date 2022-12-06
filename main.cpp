@@ -18,6 +18,8 @@ Meteors bigMeteor[15];
 Meteors middleMeteor[30];
 Meteors littleMeteor[60];
 
+bool isActive;
+
 int main(void)
 {
 	//--------------------------------------------------------------------------------------
@@ -26,10 +28,20 @@ int main(void)
 
 	srand(time(NULL));
 
+	isActive = true;
+
 	InitWindow(screenWidth, screenHeight, "Asteroids");
+	
+	SetExitKey(NULL);
+	InitAudioDevice();
+
+	Texture2D meteorTexture = LoadTexture("res/Meteor.png");
+	Sound impactMeteorSound = LoadSound("res/Impact.wav");
+	Sound laserSound = LoadSound("res/LaserBeam.wav");
+	Sound explosionSound = LoadSound("res/Explosion.wav");
 
 	//--------------------------------------------------------------------------------------
-	while (!WindowShouldClose())
+	while (isActive)
 	{
 		RunGame();
 	}
