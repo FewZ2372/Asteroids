@@ -29,10 +29,8 @@ extern Buttons Texto[3];
 
 void scenesSwitch();
 void initializeTexts();
-void updatePlay();
 void drawButtons();
-void drawPlay();
-void play();
+void updateMenu(); 
 void checkPlay();
 void drawCredits();
 void checkCredits();

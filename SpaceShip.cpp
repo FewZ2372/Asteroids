@@ -3,13 +3,15 @@
 
 void setSpaceship()
 {
-	spaceShip.rec.width = 40;
-	spaceShip.rec.height = 80;
+	spaceShip.rec.width = 20;
+	spaceShip.rec.height = 40;
 	spaceShip.rec.y = GetScreenHeight() / 2 - spaceShip.rec.height / 2;
 	spaceShip.rec.x = GetScreenWidth() / 2 - spaceShip.rec.width / 2;
-	spaceShip.speed = 30;
+	spaceShip.speed = 15;
 	spaceShip.lives = 3;
 	spaceShip.maxSpeed = 50;
+	spaceShip.bullets = 0;
+
 }
 
 void spaceShipMovement()
@@ -19,7 +21,7 @@ void spaceShipMovement()
 
 	if (IsMouseButtonDown(MOUSE_RIGHT_BUTTON))
 	{
-		Vector2 moveDir = { (float)GetMouseX(), (float)GetMouseY() };
+		Vector2 moveDir = { GetMouseX(), GetMouseY() };
 
 		moveDir = normalizeVector({ moveDir.x - spaceShip.rec.x, moveDir.y - spaceShip.rec.y });
 
@@ -27,7 +29,6 @@ void spaceShipMovement()
 		axisY = moveDir.y;
 
 	}
-
 	accelerateSpaceShip(axisX, axisY, spaceShip);
 }
 

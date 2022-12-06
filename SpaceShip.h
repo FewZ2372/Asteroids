@@ -10,6 +10,7 @@ struct SpaceShip
 	float speed;
 	float maxSpeed;
 	int lives;
+	int bullets;
 };
 extern SpaceShip spaceShip;
 

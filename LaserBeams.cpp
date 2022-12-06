@@ -1,80 +1,78 @@
 #include "LaserBeams.h"
 
-void setLaserBeams(int i)
+void setLaserBeams()
 {
-	lasers[i].rec.x = spaceShip.rec.x;
-	lasers[i].rec.y = spaceShip.rec.y;
-	lasers[i].rec.width = 10;
-	lasers[i].rec.height = 10;
-	lasers[i].speed = 900;
-	lasers[i].radius = 10;
-	lasers[i].lifeSpan = 1.5f;
-	lasers[i].currentLife = lasers[i].lifeSpan;
-	lasers[i].isLoaded = true;
+	for (int i = 0; i < maxBullets; i++)
+	{
+		lasers[i].pos.x = spaceShip.rec.x;
+		lasers[i].pos.y = spaceShip.rec.y;
+		lasers[i].speed = 400;
+		lasers[i].radius = 5;
+		lasers[i].lifeSpan = 3.0f;
+		lasers[i].isLoaded = true;
+	}
 }
 
 void laserBeamMovement()
 {
-	if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+	for (int i = 0; i < maxBullets; i++)
 	{
-		for (int i = 0; i < maxBullets; i++)
+		if (lasers[i].isLoaded == true)
 		{
-
-			if (!lasers[i].isLoaded)
-			{
-				continue;
-			}
-
-			lasers[i].rec.x = spaceShip.rec.x;
-			lasers[i].rec.y = spaceShip.rec.y;
-			Vector2 moveDir = { (float)GetMouseX(), (float)GetMouseY() };
-
-			moveDir = normalizeVector({ moveDir.x - lasers[i].rec.x, moveDir.y - lasers[i].rec.y });
-			lasers[i].direction = moveDir;
-
+			lasers[i].pos.x = spaceShip.rec.x;
+			lasers[i].pos.y = spaceShip.rec.y;
+		}
+		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && lasers[i].isLoaded == true)
+		{
 			lasers[i].isLoaded = false;
+			Vector2 moveDir = { GetMouseX(), GetMouseY() };
+			moveDir = normalizeVector({ moveDir.x - lasers[i].pos.x, moveDir.y - lasers[i].pos.y });
+			lasers[i].direction = moveDir;
 
 			break;
 		}
-	}
-
-	for (int i = 0; i < maxBullets; i++)
-	{
-		lasers[i].currentLife -= GetFrameTime();
-		moveLaserBeam(i);
-
-		if (lasers[i].currentLife <= 0)
+		if (lasers[i].isLoaded == false)
 		{
-			setLaserBeams(i);
+			moveLaserBeam(i);
+			lasers[i].lifeSpan -= GetFrameTime();
+
+			if (lasers[i].lifeSpan <= 0)
+			{
+				lasers[i].lifeSpan = 3.0f;
+				lasers[i].isLoaded = true;
+			}
 		}
 	}
 }
 
-
-
 void moveLaserBeam(int i)
 {
+	lasers[i].pos.x += lasers[i].direction.x * lasers[i].speed * GetFrameTime();
+	lasers[i].pos.y += lasers[i].direction.y * lasers[i].speed * GetFrameTime();
 
-
-	lasers[i].rec.x += lasers[i].direction.x * lasers[i].speed * GetFrameTime();
-	lasers[i].rec.y += lasers[i].direction.y * lasers[i].speed * GetFrameTime();
-
-	if (lasers[i].rec.x >= GetScreenWidth())
+	if (lasers[i].pos.x > GetScreenWidth())
 	{
-		lasers[i].rec.x = 0;
+		lasers[i].pos.x = 0;
 	}
-	else if (lasers[i].rec.x <= 0)
+	if (lasers[i].pos.x < 0)
 	{
-		lasers[i].rec.x = GetScreenWidth();
+		lasers[i].pos.x = GetScreenWidth();
 	}
-
-	if (lasers[i].rec.y >= GetScreenHeight())
+	if (lasers[i].pos.y > GetScreenHeight())
 	{
-		lasers[i].rec.y = 0;
+		lasers[i].pos.y = 0;
 	}
-	else if (lasers[i].rec.y <= 0)
+	else if (lasers[i].pos.y < 0)
 	{
-		lasers[i].rec.y = GetScreenHeight();
+		lasers[i].pos.y = GetScreenHeight();
 	}
 
+}
+
+void drawLasers()
+{
+	for (int i = 0; i < maxBullets; i++)
+	{
+		DrawCircle(lasers[i].pos.x, lasers[i].pos.y, lasers[i].radius, RED);
+	}
 }
