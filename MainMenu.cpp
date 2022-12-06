@@ -123,19 +123,53 @@ void scenesSwitch()
 
 		BeginDrawing();
 		ClearBackground(BLACK);
-		DrawText("Meteor textures by Kenney: https://kenney.nl/assets/space-shooter-extension", 3, 50,15, WHITE);
+		DrawText("Meteor textures by Kenney: https://kenney.nl/assets/space-shooter-extension", 3, 50, 15, WHITE);
 		DrawText("Shooting sound effect by GamingSoundEffects: https://www.youtube.com/watch?v=FuvmTL1nPDs&ab_channel=GamingSoundEffects", 3, 150, 15, WHITE);
 		DrawText("SpaceShip explosion sound effect by AudioForLife: https://www.youtube.com/watch?v=Y2A43FW0fb4&ab_channel=AudioForLife", 3, 250, 15, WHITE);
 		DrawText("Impacting meteors sound effect by AudioForLife: https://www.youtube.com/watch?v=Y2A43FW0fb4&ab_channel=AudioForLife", 3, 350, 15, WHITE);
 		DrawText("Ambience music by Charlie Axl Tebbutt: https://www.youtube.com/watch?v=9aKIkh4gfqs&ab_channel=CharlieAxlTebbutt", 3, 450, 15, WHITE);
 		DrawText("SpaceShip textures made by Me.", 3, 550, 15, WHITE);
-		DrawText("Press 'B' to go back to menu.", 30, 650,2, RED);
+		DrawText("Press 'B' to go back to menu.", 30, 650, 20, RED);
 		EndDrawing();
 
 		if (IsKeyDown(KEY_B))
 		{
 			menu = MenuScenes::MainMenu;
 		}
+
+		break;
+
+	case MenuScenes::Win:
+
+		BeginDrawing();
+		ClearBackground(BLACK);
+
+		DrawText("YOU WON", 300, GetScreenHeight() / 2, 40, WHITE);
+		DrawText("Press 'M' to go back to menu.", 30, 650, 20, RED);
+
+		if (IsKeyDown(KEY_M))
+		{
+			menu = MenuScenes::MainMenu;
+		}
+
+		EndDrawing();
+
+		break;
+
+	case MenuScenes::Lose:
+
+		BeginDrawing();
+		ClearBackground(BLACK);
+
+		DrawText("YOU LOST", 300, GetScreenHeight() / 2, 40, WHITE);
+		DrawText("Press 'M' to go back to menu.", 30, 650, 20, RED);
+
+		if (IsKeyDown(KEY_M))
+		{
+			menu = MenuScenes::MainMenu;
+		}
+
+		EndDrawing();
 
 		break;
 

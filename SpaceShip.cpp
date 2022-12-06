@@ -5,12 +5,14 @@ void setSpaceship()
 {
 	spaceShip.rec.width = 20;
 	spaceShip.rec.height = 20;
+	spaceShip.direction.x = 0;
+	spaceShip.direction.y = 0;
 	spaceShip.rec.y = GetScreenHeight() / 2 - spaceShip.rec.height / 2;
 	spaceShip.rec.x = GetScreenWidth() / 2 - spaceShip.rec.width / 2;
 	spaceShip.speed = 30;
 	spaceShip.lives = 3;
 	spaceShip.maxSpeed = 50;
-	spaceShip.points = 0;
+	spaceShip.points = 105;
 
 }
 

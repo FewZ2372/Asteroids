@@ -11,9 +11,10 @@ enum class MenuScenes
 	MainMenu,
 	Play,
 	Credits,
-	Quit,
 	Win,
-	Lose
+	Lose,
+	Quit,
+
 };
 extern MenuScenes menu;
 
@@ -30,7 +31,7 @@ extern Buttons Texto[3];
 void scenesSwitch();
 void initializeTexts();
 void drawButtons();
-void updateMenu(); 
+void updateMenu();
 void checkPlay();
 void drawCredits();
 void checkCredits();
