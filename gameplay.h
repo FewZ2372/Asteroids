@@ -8,6 +8,7 @@
 
 namespace FewZ
 {
+	void loadDeathSound();
 	void updateGame();
 	void drawGame();
 	float getVectorMagnitude(Vector2 vec);

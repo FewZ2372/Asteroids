@@ -5,6 +5,11 @@ namespace FewZ
 	Music music;
 	bool isActive;
 
+	void loadGameMusic()
+	{
+		music = LoadMusicStream("res/Song.wav");
+	}
+
 	void InitLoop()
 	{
 		while (isActive)
@@ -21,11 +26,9 @@ namespace FewZ
 
 	void InitMusic()
 	{
-		music = LoadMusicStream("res/Song.wav");
 		PlayMusicStream(music);
 		UpdateMusicStream(music);
 	}
-
 
 	void InitGame()
 	{
@@ -34,11 +37,19 @@ namespace FewZ
 
 		srand(time(NULL));
 
-		SetExitKey(NULL);
 
+		InitWindow(screenWidth, screenHeight, "Asteroids");
 		InitAudioDevice();
 
+		SetExitKey(NULL);
+
 		isActive = true;
+		loadGameMusic();
+		loadDeathSound();
+		loadSpaceShipTextures();
+		loadLaserSound();
+		loadMeteorSound();
+		loadMeteorTexture();
 
 		InitLoop();
 
@@ -59,4 +70,6 @@ namespace FewZ
 
 		UnloadMusicStream(music);
 	}
+
+
 }

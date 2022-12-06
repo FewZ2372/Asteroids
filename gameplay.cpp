@@ -2,6 +2,12 @@
 
 namespace FewZ
 {
+	Sound explosionSound;
+
+	void loadDeathSound()
+	{
+		explosionSound = LoadSound("res/Explosion.wav");
+	}
 
 	void updateGame()
 	{
@@ -21,8 +27,7 @@ namespace FewZ
 
 	void drawGame()
 	{
-		spaceShip.textureIdle = LoadTexture("res/SpaceShipIdle.png");
-		spaceShip.textureMoving = LoadTexture("res/SpaceShipMoving.png");
+
 
 		Vector2 rotation = { GetMouseX() - spaceShip.rec.x, GetMouseY() - spaceShip.rec.y };
 
@@ -60,13 +65,13 @@ namespace FewZ
 
 	void loseCondition()
 	{
-		explosionSound = LoadSound("res/Explosion.wav");
-
 		if (spaceShip.lives <= 0)
 		{
 			PlaySound(explosionSound);
 			menu = MenuScenes::Lose;
 		}
 	}
+
+
 }
 

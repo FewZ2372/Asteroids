@@ -10,6 +10,16 @@ namespace FewZ
 
 	Sound impactMeteorSound;
 
+	void loadMeteorSound()
+	{
+		impactMeteorSound = LoadSound("res/Impact.wav");
+
+	}
+	void loadMeteorTexture()
+	{
+		meteorTexture = LoadTexture("res/Meteor.png");
+
+	}
 	void setMeteors()
 	{
 		for (int i = 0; i < 15; i++)
@@ -72,7 +82,6 @@ namespace FewZ
 
 	void drawMeteors()
 	{
-		meteorTexture = LoadTexture("res/Meteor.png");
 
 		for (int i = 0; i < maxBigMeteors; i++)
 		{
@@ -228,7 +237,6 @@ namespace FewZ
 
 	void checkCollisionsBigMeteor()
 	{
-		impactMeteorSound = LoadSound("res/Impact.wav");
 
 		for (int i = 0; i < maxBigMeteors; i++)
 		{
@@ -284,7 +292,6 @@ namespace FewZ
 
 	void checkCollisionsMiddleMeteor()
 	{
-		impactMeteorSound = LoadSound("res/Impact.wav");
 
 		for (int i = 0; i < maxMidMeteors; i++)
 		{
@@ -339,7 +346,6 @@ namespace FewZ
 
 	void checkCollisionsLittleMeteor()
 	{
-		impactMeteorSound = LoadSound("res/Impact.wav");
 		for (int i = 0; i < maxLittleMeteors; i++)
 		{
 			for (int j = 0; j < maxBullets; j++)

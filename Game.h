@@ -11,6 +11,7 @@ namespace FewZ
 	extern Music music;
 	extern bool isActive;
 
+	void loadGameMusic();
 	void InitLoop();
 	void InitMenu();
 	void InitGame();

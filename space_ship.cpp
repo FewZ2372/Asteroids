@@ -4,7 +4,11 @@ namespace FewZ
 {
 	SpaceShip spaceShip;	
 	
-Sound explosionSound;
+	void loadSpaceShipTextures()
+	{
+		spaceShip.textureIdle = LoadTexture("res/SpaceShipIdle.png");
+		spaceShip.textureMoving = LoadTexture("res/SpaceShipMoving.png");
+	}
 
 	void setSpaceship()
 	{
@@ -101,4 +105,6 @@ Sound explosionSound;
 
 		return rot;
 	}
+
+
 }

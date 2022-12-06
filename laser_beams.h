@@ -21,6 +21,7 @@ namespace FewZ
 	extern LaserBeams lasers[maxBullets];
 	extern Sound laserSound;
 
+	void loadLaserSound();
 	void setLaserBeams();
 	void laserBeamMovement();
 	void moveLaserBeam(int i);

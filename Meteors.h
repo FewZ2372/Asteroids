@@ -31,6 +31,8 @@ namespace FewZ
 
 	extern Texture2D meteorTexture;
 
+	void loadMeteorSound();
+	void loadMeteorTexture();
 	void setMeteors();
 	void setMiddleMeteors();
 	void setLittleMeteors();

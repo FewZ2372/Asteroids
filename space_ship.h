@@ -20,6 +20,7 @@ namespace FewZ
 	extern SpaceShip spaceShip;
 	extern Sound explosionSound;
 
+	void loadSpaceShipTextures();
 	void setSpaceship();
 	void spaceShipMovement();
 	void accelerateSpaceShip(float axisX, float axisY, SpaceShip& spaceShip);

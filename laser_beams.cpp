@@ -6,6 +6,12 @@ namespace FewZ
 	
 	Sound laserSound;
 
+	void loadLaserSound()
+	{
+		laserSound = LoadSound("res/LaserBeam.wav");
+
+	}
+
 	void setLaserBeams()
 	{
 		for (int i = 0; i < maxBullets; i++)
@@ -21,7 +27,6 @@ namespace FewZ
 
 	void laserBeamMovement()
 	{
-		laserSound = LoadSound("res/LaserBeam.wav");
 
 		for (int i = 0; i < maxBullets; i++)
 		{
