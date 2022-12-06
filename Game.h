@@ -6,14 +6,15 @@
 
 #include "raylib.h"
 
-extern Sound impactMeteorSound;
-extern Sound laserSound;
-extern Sound explosionSound;
-extern Music music;
-extern bool isActive;
-void RunGame();
-void InitGame();
-void drawGame();
-void updateGame();
-float getVectorMagnitude(Vector2 vec);
-Vector2 normalizeVector(Vector2 vec);
+namespace FewZ
+{
+	extern Music music;
+	extern bool isActive;
+
+	void InitLoop();
+	void InitMenu();
+	void InitGame();
+	void InitMusic();
+	void unload();
+
+}

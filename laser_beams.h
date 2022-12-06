@@ -4,21 +4,26 @@
 
 #include "raylib.h" 
 
-struct LaserBeams
+namespace FewZ
 {
-	Vector2 direction;
-	Vector2 pos;
-	bool isLoaded;
-	float speed;
-	float radius;
-	float lifeSpan;
-};
+	struct LaserBeams
+	{
+		Vector2 direction;
+		Vector2 pos;
+		bool isLoaded;
+		float speed;
+		float radius;
+		float lifeSpan;
+	};
 
-const int maxBullets = 10;
+	const int maxBullets = 10;
 
-extern LaserBeams lasers[maxBullets];
+	extern LaserBeams lasers[maxBullets];
+	extern Sound laserSound;
 
-void moveLaserBeam(int i);
-void laserBeamMovement();
-void setLaserBeams();
-void drawLasers();
+	void setLaserBeams();
+	void laserBeamMovement();
+	void moveLaserBeam(int i);
+	void drawLasers();
+
+}

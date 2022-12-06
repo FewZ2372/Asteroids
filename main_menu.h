@@ -8,34 +8,38 @@
 
 using namespace std;
 
-enum class MenuScenes
+namespace FewZ
 {
-	MainMenu,
-	Play,
-	Credits,
-	Win,
-	Lose,
-	Quit,
+	enum class MenuScenes
+	{
+		MainMenu,
+		Play,
+		Credits,
+		Win,
+		Lose,
+		Quit,
 
-};
-extern MenuScenes menu;
+	};
+	extern MenuScenes menu;
 
-struct Buttons
-{
-	string text{};
-	Vector2 pos{};
-	int fontSize{};
+	struct Buttons
+	{
+		string text{};
+		Vector2 pos{};
+		int fontSize{};
 
-	Rectangle backgroundBttn{};
-};
-extern Buttons Texto[3];
+		Rectangle backgroundBttn{};
+	};
+	extern Buttons Texto[3];
 
-void scenesSwitch();
-void initializeTexts();
-void drawButtons();
-void updateMenu();
-void checkPlay();
-void drawCredits();
-void checkCredits();
-void drawQuit();
-void checkQuit();
+	void initializeTexts();
+	void drawPlay();
+	void checkPlay();
+	void drawCredits();
+	void checkCredits();
+	void drawQuit();
+	void checkQuit();
+	void drawButtons();
+	void updateMenu();
+	void scenesSwitch();
+}

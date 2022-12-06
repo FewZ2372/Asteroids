@@ -6,35 +6,42 @@
 
 #include "time.h" 
 
-struct Meteors
+namespace FewZ
 {
-	Rectangle pos;
-	Vector2 direction;
-	float speed;
-	float rotation;
-	int life;
-	int radius;
-	bool isPrintable;
-};
+	struct Meteors
+	{
+		Rectangle pos;
+		Vector2 direction;
+		float speed;
+		float rotation;
+		int life;
+		int radius;
+		bool isPrintable;
+	};
 
-const int maxBigMeteors = 15;
-const int maxMidMeteors = 30;
-const int maxLittleMeteors = 60;
+	const int maxBigMeteors = 15;
+	const int maxMidMeteors = 30;
+	const int maxLittleMeteors = 60;
 
-extern Meteors bigMeteor[maxBigMeteors];
-extern Meteors middleMeteor[maxMidMeteors];
-extern Meteors littleMeteor[maxLittleMeteors];
-extern Texture2D meteorTexture;
+	extern Meteors bigMeteor[maxBigMeteors];
+	extern Meteors middleMeteor[maxMidMeteors];
+	extern Meteors littleMeteor[maxLittleMeteors];
 
-void setMeteors();
-void setMiddleMeteors();
-void setLittleMeteors();
-void drawMeteors();
-void meteorDirection();
-void moveBigMeteor();
-void moveMidMeteor();
-void moveLittleMeteor();
-void checkCollisionsBigMeteor();
-void checkCollisionsMiddleMeteor();
-void checkCollisionsLittleMeteor();
+	extern Sound impactMeteorSound;
+
+	extern Texture2D meteorTexture;
+
+	void setMeteors();
+	void setMiddleMeteors();
+	void setLittleMeteors();
+	void drawMeteors();
+	void meteorDirection();
+	void moveBigMeteor();
+	void moveMidMeteor();
+	void moveLittleMeteor();
+	void checkCollisionsBigMeteor();
+	void checkCollisionsMiddleMeteor();
+	void checkCollisionsLittleMeteor();
+}
+
 

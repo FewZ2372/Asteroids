@@ -9,25 +9,7 @@
 
 #include "raylib.h"
 
-
-MenuScenes menu;
-
-Buttons Texto[3];
-
-SpaceShip spaceShip;
-LaserBeams lasers[maxBullets];
-
-Meteors bigMeteor[15];
-Meteors middleMeteor[30];
-Meteors littleMeteor[60];
-
-bool isActive;
-
-Texture meteorTexture;
-Sound impactMeteorSound;
-Sound laserSound;
-Sound explosionSound;
-Music music;
+using namespace FewZ;
 
 int main(void)
 {
