@@ -10,7 +10,6 @@ struct SpaceShip
 	float speed;
 	float maxSpeed;
 	int lives;
-	int bullets;
 	int points;
 	Texture2D textureMoving;
 	Texture2D textureIdle;

@@ -8,10 +8,10 @@
 
 struct Meteors
 {
-
-	Vector2 pos;
+	Rectangle pos;
 	Vector2 direction;
 	float speed;
+	float rotation;
 	int life;
 	int radio;
 	bool isPrintable;
@@ -24,6 +24,7 @@ const int maxLittleMeteors = 60;
 extern Meteors bigMeteor[maxBigMeteors];
 extern Meteors middleMeteor[maxMidMeteors];
 extern Meteors littleMeteor[maxLittleMeteors];
+extern Texture2D meteorTexture;
 
 void setMeteors();
 void setMiddleMeteors();
@@ -35,3 +36,5 @@ void moveMidMeteor();
 void moveLittleMeteor();
 void checkCollisionsBigMeteor();
 void checkCollisionsMiddleMeteor();
+void checkCollisionsLittleMeteor();
+

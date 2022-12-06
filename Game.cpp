@@ -1,6 +1,5 @@
 #include "Game.h"
 
-
 void RunGame()
 {
 	scenesSwitch();
@@ -20,8 +19,12 @@ Vector2 normalizeVector(Vector2 vec)
 
 void updateGame()
 {
+	float currentTimer = 0;
+	float targetTime = 2.0f;
+
 	checkCollisionsBigMeteor();
 	checkCollisionsMiddleMeteor();
+	checkCollisionsLittleMeteor();
 
 	spaceShipMovement();
 	laserBeamMovement();
@@ -29,8 +32,16 @@ void updateGame()
 	moveMidMeteor();
 	moveLittleMeteor();
 
-	if (spaceShip.lives == 0)
+	//if (spaceShip.points > 15)
+	//{
+	//	setMeteors();
+	//	setMiddleMeteors();
+	//	setLittleMeteors();
+	//}
+
+	if (spaceShip.lives <= 0)
 	{
+		PlaySound(explosionSound);
 		menu = MenuScenes::MainMenu;
 	}
 }
@@ -42,8 +53,8 @@ void drawGame()
 	BeginDrawing();
 	ClearBackground(BLACK);
 
-	DrawRectanglePro({ spaceShip.rec.x, spaceShip.rec.y, spaceShip.rec.width, spaceShip.rec.height },
-		{ spaceShip.rec.width / 2, spaceShip.rec.height / 2 }, getRotation(rotation), BLUE);
+	DrawTexturePro(spaceShip.textureIdle, { -10 , 0, 200, 200 }, { spaceShip.rec.x, spaceShip.rec.y, 200, 200 }, { 85, 85 }, getRotation(rotation) - 90, WHITE);
+
 	drawLasers();
 	drawMeteors();
 	DrawText(TextFormat("POINTS: " "%i", spaceShip.points), 5, 20, 20, WHITE);//POINTS DRAWING

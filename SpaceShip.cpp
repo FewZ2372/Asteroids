@@ -4,15 +4,13 @@
 void setSpaceship()
 {
 	spaceShip.rec.width = 20;
-	spaceShip.rec.height = 40;
+	spaceShip.rec.height = 20;
 	spaceShip.rec.y = GetScreenHeight() / 2 - spaceShip.rec.height / 2;
 	spaceShip.rec.x = GetScreenWidth() / 2 - spaceShip.rec.width / 2;
 	spaceShip.speed = 30;
 	spaceShip.lives = 3;
 	spaceShip.maxSpeed = 50;
-	spaceShip.bullets = 0;
-	spaceShip.textureIdle = LoadTexture("res/SpaceShipIdle.png");
-	spaceShip.textureMoving = LoadTexture("res/SpaceShipMoving.png");
+	spaceShip.points = 0;
 
 }
 

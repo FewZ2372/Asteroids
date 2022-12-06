@@ -5,6 +5,9 @@
 #include "LaserBeams.h"
 #include "Meteors.h" 
 
+extern Sound impactMeteorSound;
+extern Sound laserSound;
+extern Sound explosionSound;
 extern bool isActive;
 void RunGame();
 void drawGame();

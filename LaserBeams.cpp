@@ -10,7 +10,6 @@ void setLaserBeams()
 		lasers[i].radius = 3;
 		lasers[i].lifeSpan = 1.5f;
 		lasers[i].isLoaded = true;
-		lasers[i].laserSound = LoadSound("res/LaserBeam.wav");
 	}
 }
 
@@ -25,6 +24,7 @@ void laserBeamMovement()
 		}
 		if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && lasers[i].isLoaded == true)
 		{
+			PlaySound(laserSound);
 			lasers[i].isLoaded = false;
 			Vector2 moveDir = { GetMouseX(), GetMouseY() };
 			moveDir = normalizeVector({ moveDir.x - lasers[i].pos.x, moveDir.y - lasers[i].pos.y });

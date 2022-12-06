@@ -20,6 +20,11 @@ Meteors littleMeteor[60];
 
 bool isActive;
 
+Texture meteorTexture;
+Sound impactMeteorSound;
+Sound laserSound;
+Sound explosionSound;
+
 int main(void)
 {
 	//--------------------------------------------------------------------------------------
@@ -31,22 +36,23 @@ int main(void)
 	isActive = true;
 
 	InitWindow(screenWidth, screenHeight, "Asteroids");
-	
+
 	SetExitKey(NULL);
 	InitAudioDevice();
 
-	Texture2D meteorTexture = LoadTexture("res/Meteor.png");
-	Sound impactMeteorSound = LoadSound("res/Impact.wav");
-	Sound laserSound = LoadSound("res/LaserBeam.wav");
-	Sound explosionSound = LoadSound("res/Explosion.wav");
-
+	meteorTexture = LoadTexture("res/Meteor.png");
+	impactMeteorSound = LoadSound("res/Impact.wav");
+	laserSound = LoadSound("res/LaserBeam.wav");
+	explosionSound = LoadSound("res/Explosion.wav");
+	spaceShip.textureIdle = LoadTexture("res/SpaceShipIdle.png");
+	spaceShip.textureMoving = LoadTexture("res/SpaceShipMoving.png");
 	//--------------------------------------------------------------------------------------
 	while (isActive)
 	{
 		RunGame();
 	}
 
-	CloseWindow();        
+	CloseWindow();
 
 	return 0;
 }
