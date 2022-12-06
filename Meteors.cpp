@@ -244,13 +244,13 @@ void checkCollisionsBigMeteor()
 			bigMeteor[i].isPrintable = false;
 			
 			middleMeteor[i].isPrintable = true;
-			middleMeteor[i + maxMidMeteors].isPrintable = true;
+			middleMeteor[i + 1].isPrintable = true;
 
 			middleMeteor[i].pos.x = bigMeteor[i].pos.x;
-			middleMeteor[i + maxMidMeteors].pos.x = bigMeteor[i].pos.x;
+			middleMeteor[i + 1].pos.x = bigMeteor[i].pos.x;
 
 			middleMeteor[i].pos.y = bigMeteor[i].pos.y;
-			middleMeteor[i + maxMidMeteors].pos.y = bigMeteor[i].pos.y;
+			middleMeteor[i + 1].pos.y = bigMeteor[i].pos.y;
 
 			spaceShip.lives--;
 
@@ -274,11 +274,11 @@ void checkCollisionsMiddleMeteor()
 				littleMeteor[i].pos.x = middleMeteor[i].pos.x;
 				littleMeteor[i].pos.y = middleMeteor[i].pos.y;
 
-				littleMeteor[i + maxLittleMeteors].pos.x = middleMeteor[i].pos.x;
-				littleMeteor[i + maxLittleMeteors].pos.y = middleMeteor[i].pos.y;
+				littleMeteor[i + 1].pos.x = middleMeteor[i].pos.x;
+				littleMeteor[i + 1].pos.y = middleMeteor[i].pos.y;
 
 				littleMeteor[i].isPrintable = true;
-				littleMeteor[i + maxLittleMeteors].isPrintable = true;
+				littleMeteor[i + 1].isPrintable = true;
 
 				spaceShip.points++;
 
@@ -294,11 +294,11 @@ void checkCollisionsMiddleMeteor()
 			littleMeteor[i].pos.x = middleMeteor[i].pos.x;
 			littleMeteor[i].pos.y = middleMeteor[i].pos.y;
 
-			littleMeteor[i + maxLittleMeteors].pos.x = middleMeteor[i].pos.x;
-			littleMeteor[i + maxLittleMeteors].pos.y = middleMeteor[i].pos.y;
+			littleMeteor[i + 1].pos.x = middleMeteor[i].pos.x;
+			littleMeteor[i + 1].pos.y = middleMeteor[i].pos.y;
 
 			littleMeteor[i].isPrintable = true;
-			littleMeteor[i + maxLittleMeteors].isPrintable = true;
+			littleMeteor[i + 1].isPrintable = true;
 
 			spaceShip.lives--;
 
