@@ -1,9 +1,10 @@
 #pragma once
+#include "main_menu.h"
+#include "space_ship.h"
+#include "laser_beams.h"
+#include "meteors.h" 
+
 #include "raylib.h"
-#include "MainMenu.h"
-#include "SpaceShip.h"
-#include "LaserBeams.h"
-#include "Meteors.h" 
 
 extern Sound impactMeteorSound;
 extern Sound laserSound;

@@ -162,18 +162,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="LaserBeams.cpp" />
-    <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="Meteors.cpp" />
-    <ClCompile Include="SpaceShip.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="laser_beams.cpp" />
+    <ClCompile Include="main_menu.cpp" />
+    <ClCompile Include="meteors.cpp" />
+    <ClCompile Include="space_ship.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="LaserBeams.h" />
-    <ClInclude Include="MainMenu.h" />
-    <ClInclude Include="Meteors.h" />
-    <ClInclude Include="SpaceShip.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="laser_beams.h" />
+    <ClInclude Include="main_menu.h" />
+    <ClInclude Include="meteors.h" />
+    <ClInclude Include="space_ship.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

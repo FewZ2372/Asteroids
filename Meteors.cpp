@@ -1,4 +1,4 @@
-#include "Meteors.h"
+#include "meteors.h"
 
 void setMeteors()
 {
@@ -20,7 +20,7 @@ void setMeteors()
 		bigMeteor[i].pos.height = 100;
 		bigMeteor[i].rotation = 0;
 		bigMeteor[i].speed = 80;
-		bigMeteor[i].radio = 50;
+		bigMeteor[i].radius = 50;
 		bigMeteor[i].life = 1;
 		bigMeteor[i].isPrintable = true;
 	}
@@ -36,7 +36,7 @@ void setMiddleMeteors()
 		middleMeteor[i].pos.y = bigMeteor[i / 2].pos.y;
 		middleMeteor[i].rotation = 0;
 		middleMeteor[i].speed = 80;
-		middleMeteor[i].radio = 25;
+		middleMeteor[i].radius = 25;
 		middleMeteor[i].life = 1;
 	}
 }
@@ -54,7 +54,7 @@ void setLittleMeteors()
 			littleMeteor[i].pos.y = middleMeteor[f].pos.y;
 			littleMeteor[i].rotation = 0;
 			littleMeteor[i].speed = 80;
-			littleMeteor[i].radio = 12;
+			littleMeteor[i].radius = 12;
 			littleMeteor[i].life = 1;
 		}
 	}
@@ -66,7 +66,7 @@ void drawMeteors()
 	{
 		if (bigMeteor[i].isPrintable)
 		{
-			//DrawCircle(bigMeteor[i].pos.x, bigMeteor[i].pos.y, bigMeteor[i].radio, GREEN);
+			//DrawCircle(bigMeteor[i].pos.x, bigMeteor[i].pos.y, bigMeteor[i].radius, GREEN);
 			DrawTexturePro(meteorTexture, { 0, 0, 215, 211 }, bigMeteor[i].pos, { 50, 50 }, bigMeteor[i].rotation, WHITE);
 		}
 	}
@@ -75,7 +75,7 @@ void drawMeteors()
 	{
 		if (middleMeteor[i].isPrintable)
 		{
-			//DrawCircle(middleMeteor[i].pos.x, middleMeteor[i].pos.y, middleMeteor[i].radio, GREEN);
+			//DrawCircle(middleMeteor[i].pos.x, middleMeteor[i].pos.y, middleMeteor[i].radius, GREEN);
 			DrawTexturePro(meteorTexture, { 0, 0, 215, 211 }, middleMeteor[i].pos, { 25, 25 }, middleMeteor[i].rotation, WHITE);
 
 		}
@@ -85,7 +85,7 @@ void drawMeteors()
 	{
 		if (littleMeteor[i].isPrintable)
 		{
-			//DrawCircle(littleMeteor[i].pos.x, littleMeteor[i].pos.y, littleMeteor[i].radio, GREEN);
+			//DrawCircle(littleMeteor[i].pos.x, littleMeteor[i].pos.y, littleMeteor[i].radius, GREEN);
 			DrawTexturePro(meteorTexture, { 0, 0, 215, 211 }, littleMeteor[i].pos, { 12, 12 }, littleMeteor[i].rotation, WHITE);
 
 		}
@@ -137,22 +137,22 @@ void moveBigMeteor()
 		bigMeteor[i].pos.x += bigMeteor[i].direction.x * bigMeteor[i].speed * GetFrameTime();
 		bigMeteor[i].pos.y += bigMeteor[i].direction.y * bigMeteor[i].speed * GetFrameTime();
 
-		if (bigMeteor[i].pos.x - bigMeteor[i].radio >= GetScreenWidth())
+		if (bigMeteor[i].pos.x - bigMeteor[i].radius >= GetScreenWidth())
 		{
-			bigMeteor[i].pos.x = 0 - bigMeteor[i].radio;
+			bigMeteor[i].pos.x = 0 - bigMeteor[i].radius;
 		}
-		else if (bigMeteor[i].pos.x + bigMeteor[i].radio <= 0)
+		else if (bigMeteor[i].pos.x + bigMeteor[i].radius <= 0)
 		{
-			bigMeteor[i].pos.x = GetScreenWidth() + bigMeteor[i].radio;
+			bigMeteor[i].pos.x = GetScreenWidth() + bigMeteor[i].radius;
 		}
 
-		if (bigMeteor[i].pos.y - bigMeteor[i].radio >= GetScreenHeight())
+		if (bigMeteor[i].pos.y - bigMeteor[i].radius >= GetScreenHeight())
 		{
-			bigMeteor[i].pos.y = 0 - bigMeteor[i].radio;
+			bigMeteor[i].pos.y = 0 - bigMeteor[i].radius;
 		}
-		else if (bigMeteor[i].pos.y + bigMeteor[i].radio <= 0)
+		else if (bigMeteor[i].pos.y + bigMeteor[i].radius <= 0)
 		{
-			bigMeteor[i].pos.y = GetScreenHeight() + bigMeteor[i].radio;
+			bigMeteor[i].pos.y = GetScreenHeight() + bigMeteor[i].radius;
 		}
 	}
 }
@@ -220,7 +220,7 @@ void checkCollisionsBigMeteor()
 	{
 		for (int j = 0; j < maxBullets; j++)
 		{
-			if (CheckCollisionCircles({ bigMeteor[i].pos.x, bigMeteor[i].pos.y }, bigMeteor[i].radio, lasers[j].pos, lasers[j].radius) && bigMeteor[i].isPrintable)
+			if (CheckCollisionCircles({ bigMeteor[i].pos.x, bigMeteor[i].pos.y }, bigMeteor[i].radius, lasers[j].pos, lasers[j].radius) && bigMeteor[i].isPrintable)
 			{
 				PlaySound(impactMeteorSound);
 
@@ -243,7 +243,7 @@ void checkCollisionsBigMeteor()
 
 			}
 		}
-		if (CheckCollisionCircleRec({ bigMeteor[i].pos.x, bigMeteor[i].pos.y }, bigMeteor[i].radio, spaceShip.rec) && bigMeteor[i].isPrintable)
+		if (CheckCollisionCircleRec({ bigMeteor[i].pos.x, bigMeteor[i].pos.y }, bigMeteor[i].radius, spaceShip.rec) && bigMeteor[i].isPrintable)
 		{
 			bigMeteor[i].isPrintable = false;
 
@@ -270,7 +270,7 @@ void checkCollisionsMiddleMeteor()
 	{
 		for (int j = 0; j < maxBullets; j++)
 		{
-			if (CheckCollisionCircles({ middleMeteor[i].pos.x, middleMeteor[i].pos.y }, middleMeteor[i].radio, lasers[j].pos, lasers[j].radius) && middleMeteor[i].isPrintable)
+			if (CheckCollisionCircles({ middleMeteor[i].pos.x, middleMeteor[i].pos.y }, middleMeteor[i].radius, lasers[j].pos, lasers[j].radius) && middleMeteor[i].isPrintable)
 			{
 				middleMeteor[i].isPrintable = false;
 				lasers[j].isLoaded = true;
@@ -291,7 +291,7 @@ void checkCollisionsMiddleMeteor()
 			}
 		}
 
-		if (CheckCollisionCircleRec({ middleMeteor[i].pos.x, middleMeteor[i].pos.y }, middleMeteor[i].radio, spaceShip.rec) && middleMeteor[i].isPrintable)
+		if (CheckCollisionCircleRec({ middleMeteor[i].pos.x, middleMeteor[i].pos.y }, middleMeteor[i].radius, spaceShip.rec) && middleMeteor[i].isPrintable)
 		{
 			middleMeteor[i].isPrintable = false;
 
@@ -318,7 +318,7 @@ void checkCollisionsLittleMeteor()
 	{
 		for (int j = 0; j < maxBullets; j++)
 		{
-			if (CheckCollisionCircles({ littleMeteor[i].pos.x, littleMeteor[i].pos.y }, littleMeteor[i].radio, lasers[j].pos, lasers[j].radius) && littleMeteor[i].isPrintable)
+			if (CheckCollisionCircles({ littleMeteor[i].pos.x, littleMeteor[i].pos.y }, littleMeteor[i].radius, lasers[j].pos, lasers[j].radius) && littleMeteor[i].isPrintable)
 			{
 				littleMeteor[i].isPrintable = false;
 				lasers[j].isLoaded = true;
@@ -330,7 +330,7 @@ void checkCollisionsLittleMeteor()
 			}
 		}
 
-		if (CheckCollisionCircleRec({ littleMeteor[i].pos.x, littleMeteor[i].pos.y }, littleMeteor[i].radio, spaceShip.rec) && littleMeteor[i].isPrintable)
+		if (CheckCollisionCircleRec({ littleMeteor[i].pos.x, littleMeteor[i].pos.y }, littleMeteor[i].radius, spaceShip.rec) && littleMeteor[i].isPrintable)
 		{
 			littleMeteor[i].isPrintable = false;
 

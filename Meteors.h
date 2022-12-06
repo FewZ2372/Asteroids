@@ -1,10 +1,10 @@
 #pragma once
 #include "raylib.h" 
-#include "Game.h" 
-#include "LaserBeams.h" 
-#include "SpaceShip.h" 
+#include "game.h" 
+#include "laser_beams.h" 
+#include "space_ship.h" 
 
-#include "ctime" 
+#include "time.h" 
 
 struct Meteors
 {
@@ -13,7 +13,7 @@ struct Meteors
 	float speed;
 	float rotation;
 	int life;
-	int radio;
+	int radius;
 	bool isPrintable;
 };
 
